@@ -1,0 +1,24 @@
+.project {
+  border-left: 4px solid;
+}
+.ongoing {
+  border-color: orange;
+}
+.complete {
+  border-color: #3cd1c2;
+}
+.overdue {
+  border-color: tomato;
+}
+
+.chip {
+  .ongoing {
+    background-color: orange;
+  }
+  .complete {
+    background-color: #3cd1c2;
+  }
+  .overdue {
+    background-color: tomato;
+  }
+}

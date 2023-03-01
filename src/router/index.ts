@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Dashboard from "@/views/Dashboard.vue";
-import Projects from "@/views/Projects.vue";
 
 Vue.use(VueRouter);
 

@@ -1,18 +1,17 @@
 <template>
     <nav>
-        <v-toolbar>
-            <v-app-bar-nav-icon class="green--text" @click="isMenuOpen = !isMenuOpen"></v-app-bar-nav-icon>
-            <v-toolbar-title class="green--text">
-                <span class="font-weight-light">TODO</span>
-                <span>App</span>
+        <Toast />
+        <v-toolbar flat>
+            <v-app-bar-nav-icon class="primary--text" @click="isMenuOpen = !isMenuOpen"></v-app-bar-nav-icon>
+            <v-toolbar-title class="primary--text">
+                <span class="font-weight-bold">TODO</span>
+                <span>APP</span>
             </v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn>
-                <span>Log in</span>
-                <v-icon right>mdi-antenna</v-icon>
-            </v-btn>
+            <Dropdown />
+
         </v-toolbar>
-        <v-navigation-drawer app class="indigo" v-model="isMenuOpen">
+        <v-navigation-drawer app class="primary" v-model="isMenuOpen">
             <NavMenu />
         </v-navigation-drawer>
     </nav>
@@ -20,19 +19,24 @@
 
 
 <script lang="ts">
-
+//@ts-nocheck
 import NavMenu from './menu/NavMenu.vue';
-
+import Dropdown from './menu/Dropdown.vue';
+import Toast from './menu/Toast.vue';
 export default {
     data() {
         return {
-            isMenuOpen: false
+            isMenuOpen: false,
+
         }
 
     },
     components: {
-        NavMenu
+        NavMenu,
+        Dropdown,
+        Toast
     }
+
 }
 
 

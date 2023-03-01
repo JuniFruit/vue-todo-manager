@@ -12,7 +12,7 @@
                     <div class="grey--text">{{ person.role }}</div>
                 </v-card-text>
                 <v-card-actions class="justify-center">
-                    <v-btn color="gray" depressed>
+                    <v-btn color="gray" @click="onMessage(person.name)" class="grey--text" :ripple="false" depressed>
                         <v-icon small left>mdi-message</v-icon>
                         <span>Message</span>
                     </v-btn>
@@ -23,6 +23,7 @@
 </template>
 
 <script lang="ts">
+import { mutations } from '@/store/store';
 import { PropType } from 'vue';
 import { IPersonInfo } from './Cards.interface';
 export default {
@@ -35,6 +36,11 @@ export default {
     data() {
         return {
 
+        }
+    },
+    methods: {
+        onMessage: (person: string) => {
+            mutations.setToast(`Sorry, ${person} is busy right now. Try again later`, 'error')
         }
     }
 }

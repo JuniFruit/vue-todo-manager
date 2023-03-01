@@ -7,6 +7,9 @@
                 </v-avatar>
             </v-flex>
             <span class="white--text">User</span>
+            <v-flex class="my-4">
+                <Dialog />
+            </v-flex>
         </v-layout>
         <v-list>
             <v-list-item v-for="menuItem in links" :key="menuItem.link" router :to="menuItem.link">
@@ -25,12 +28,20 @@
 
 
 <script lang="ts">
+//@ts-nocheck
 import { menuLinks } from './menu.data';
+import Dialog from './Dialog.vue';
 
 export default {
+    components: { Dialog },
     data() {
         return {
             links: menuLinks
+        }
+    },
+    methods: {
+        bubbleEvent(e: 'error' | 'success') {
+            console.log(e)
         }
     }
 }

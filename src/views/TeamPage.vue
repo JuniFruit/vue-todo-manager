@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard">
+  <div class="teamPage">
     <h1 class="subheader grey--text">Team</h1>
 
     <v-container class="my-10">

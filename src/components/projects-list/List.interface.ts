@@ -3,5 +3,6 @@ export interface IProjectItem {
   person: string;
   due: string;
   status: string;
-  id: string | number;
+  content: string;
+  id: string;
 }

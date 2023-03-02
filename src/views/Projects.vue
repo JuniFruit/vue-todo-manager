@@ -17,19 +17,21 @@
 
             </v-layout>
 
-            <Collapsable :projects="personalProjects" @on-delete="handleDelete" />
+            <Collapsable :projects="projects" @on-delete="handleDelete" :is-delete-loading="isDeleteLoading" />
         </v-container>
 
     </div>
 </template>
   
 <script lang="ts">
-//@ts-nocheck
+import Vue from 'vue'
 import Collapsable from '@/components/projects-list/collapsable/Collapsable.vue';
-import db from '@/firebase.init';
+import { Firestore } from '@/services/firestore.service';
 import { mutations, store } from '@/store/store';
-import { collection, deleteDoc, doc, getDocs } from '@firebase/firestore';
-export default {
+import { IProjectItem } from '@/components/projects-list/List.interface';
+
+
+export default Vue.extend({
     name: 'Projects',
 
     components: {
@@ -38,34 +40,30 @@ export default {
     data() {
         return {
             isUserProjects: false,
-            projects: []
+            isDeleteLoading: false
         }
     },
     computed: {
-        personalProjects: function () {
-            return this.projects.filter(project => this.isUserProjects ? project.person === 'User' : true)
+        projects(): IProjectItem[] {
+            return store.projects.filter(project => this.isUserProjects ? project.person === 'User' : true)
         }
     },
     methods: {
-        handleDelete(id) {
+        async handleDelete(id: string) {
+            this.isDeleteLoading = true
+            const { isError, message } = await Firestore.deleteProject(id);
+            if (isError) {
+                mutations.setToast(message, 'error');
+            } else {
+                mutations.setToast('Successfully deleted!')
+            }
+            this.isDeleteLoading = false
 
-            deleteDoc(doc(db, "projects", id))
-                .then((res) => { mutations.setToast('Successfully deleted!'), mutations.deleteProjectById(id) })
-                .catch((e) => mutations.setToast(e.message, 'error'))
         }
     },
     async created() {
-        const cached = store.projects;
-        if (cached.length) return this.projects = cached;
-        const querySnapshot = await getDocs(collection(db, "projects"));
-        if (!querySnapshot) return;
-        const docs = []
-        querySnapshot.forEach((doc) => {
-            docs.push({ ...doc.data(), id: doc.id })
-        })
-        this.projects = docs
-        mutations.setProjects(docs)
+        await Firestore.getProjects()
     }
-}
+})
 </script>
   

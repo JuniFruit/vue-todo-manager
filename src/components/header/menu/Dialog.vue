@@ -28,7 +28,6 @@
                         <v-btn :loading="isLoading" type="submit" depressed color="primary my-5">Add a project</v-btn>
 
                     </v-flex>
-                    <!-- <h3 v-show="error" class="caption subheading red--text">{{ error }}</h3> -->
 
                 </v-form>
             </v-card-text>
@@ -40,19 +39,20 @@
 
 <script lang="ts">
 //@ts-nocheck
-import { format } from 'date-fns'
-import db from '@/firebase.init'
-import { addDoc, collection } from 'firebase/firestore'
-import { IProjectItem } from '@/modules/projects/Projects.interface';
+import Vue from 'vue';
+import { IProjectItem } from '@/components/projects-list/List.interface';
+import { Firestore } from '@/services/firestore.service';
 import { mutations } from '@/store/store';
-export default {
+import { format } from 'date-fns';
+export default Vue.extend({
+
     data() {
         return {
             title: '',
             info: '',
-            due: null,
+            due: '',
             inputRules: [
-                v => v?.length >= 3 || 'Minimum length is 3 characters'
+                (v: any) => v?.length >= 3 || 'Minimum length is 3 characters'
             ],
             isLoading: false,
             isOpen: false,
@@ -63,33 +63,37 @@ export default {
         fomatted() {
             if (!this.due) return;
             const [y, m, d] = this.due.split('-').filter(item => item !== '-')
-            return this.due ? format(new Date(y, +m - 1, d), "do MMM yyyy") : ''
+            return this.due ? format(new Date(+y, +m - 1, +d), "do MMM yyyy") : ''
         }
     },
     methods: {
-        submit() {
-            if (this.$refs.form.validate()) {
+        async submit() {
+            //@ts-ignore
+            if (this.$refs.form!.validate()) {
                 this.isLoading = true;
                 this.error = '';
                 const [y, m, d] = this.due.split('-').filter(item => item !== '-')
                 const project: IProjectItem = {
                     title: this.title,
                     person: 'User',
-                    due: format(new Date(y, +m - 1, d), "do MMM yyyy"),
+                    due: format(new Date(+y, +m - 1, +d), "do MMM yyyy"),
                     content: this.info,
-                    status: 'ongoing'
+                    status: 'ongoing',
+                    id: '0'
                 }
-                addDoc(collection(db, 'projects'), project)
-                    .then((res) => {
-                        console.log(res)
-                        this.isOpen = false;
-                        mutations.setToast('Successfully added!')
-                    })
-                    .catch((e) => { mutations.setToast(e.message, 'error') })
-                    .finally(() => this.isLoading = false)
+                const { isError, message } = await Firestore.addProject(project)
+                if (isError) {
+                    mutations.setToast(message, 'error')
+                } else {
+                    mutations.setToast('Successfully added!');
+                    this.isOpen = false
+                }
+                this.isLoading = false
+
             }
         }
     }
-}
+
+})
 
 </script>

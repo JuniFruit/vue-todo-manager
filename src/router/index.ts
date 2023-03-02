@@ -8,11 +8,17 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "dashboard",
+    meta: {
+      title: "Dashboard",
+    },
     component: Dashboard,
   },
   {
     path: "/team_page",
     name: "team page",
+    meta: {
+      title: "Team",
+    },
     // route level code-splitting
     // this generates a separate chunk (teamPage.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -22,6 +28,9 @@ const routes: Array<RouteConfig> = [
   {
     path: "/projects",
     name: "projects",
+    meta: {
+      title: "Projects",
+    },
     // route level code-splitting
     // this generates a separate chunk (projects.[hash].js) for this route
     // which is lazy-loaded when the route is visited.

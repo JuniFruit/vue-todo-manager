@@ -12,9 +12,9 @@
 
 
 <script lang="ts">
-//@ts-nocheck
+import Vue from 'vue';
 import { mutations, store } from '@/store/store';
-export default {
+export default Vue.extend({
     data() {
         return {
         }
@@ -32,5 +32,5 @@ export default {
             mutations.clearToast()
         }
     }
-}
+})
 </script>

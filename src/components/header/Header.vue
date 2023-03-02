@@ -3,7 +3,7 @@
         <Toast />
         <v-toolbar flat>
             <v-app-bar-nav-icon class="primary--text" @click="isMenuOpen = !isMenuOpen"></v-app-bar-nav-icon>
-            <v-toolbar-title class="primary--text">
+            <v-toolbar-title class="primary--text pl-1">
                 <span class="font-weight-bold">TODO</span>
                 <span>APP</span>
             </v-toolbar-title>
@@ -19,7 +19,6 @@
 
 
 <script lang="ts">
-//@ts-nocheck
 import NavMenu from './menu/NavMenu.vue';
 import Dropdown from './menu/Dropdown.vue';
 import Toast from './menu/Toast.vue';

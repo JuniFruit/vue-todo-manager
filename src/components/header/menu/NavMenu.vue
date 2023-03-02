@@ -28,23 +28,19 @@
 
 
 <script lang="ts">
-//@ts-nocheck
+import Vue from 'vue'
 import { menuLinks } from './menu.data';
 import Dialog from './Dialog.vue';
 
-export default {
+export default Vue.extend({
     components: { Dialog },
     data() {
         return {
             links: menuLinks
         }
-    },
-    methods: {
-        bubbleEvent(e: 'error' | 'success') {
-            console.log(e)
-        }
     }
-}
+
+})
 
 
 </script>

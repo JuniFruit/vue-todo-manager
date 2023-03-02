@@ -16,13 +16,14 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import { menuLinks } from './menu.data';
 
-export default {
+export default Vue.extend({
     data() {
         return {
             menuLinks
         }
     }
-}
+})
 </script>

@@ -4,36 +4,21 @@
 
 
 <script lang="ts">
-//@ts-nocheck
-
-import { IPersonInfo } from '@/components/person-cards/Cards.interface';
+import Vue from 'vue'
 import PersonCards from '@/components/person-cards/PersonCards.vue';
-import db from '@/firebase.init';
-import { mutations, store } from '@/store/store';
-import { collection, getDocs } from '@firebase/firestore';
-export default {
+import { Firestore } from '@/services/firestore.service';
+import { store } from '@/store/store';
+export default Vue.extend({
     components: {
         PersonCards
     },
-    data() {
-        return {
-            team: []
+    computed: {
+        team() {
+            return store.users
         }
     },
-    methods: {
-
-    },
     async created() {
-        const cached = store.users;
-        if (cached.length) return this.team = cached;
-        const querySnapshot = await getDocs<IPersonInfo>(collection(db, "users"));
-        if (!querySnapshot) return;
-        const docs: IPersonInfo[] = []
-        querySnapshot.forEach((doc) => {
-            docs.push(doc.data())
-        })
-        this.team = docs
-        mutations.setUsers(docs)
+        await Firestore.getUsers()
     }
-}
+})
 </script>

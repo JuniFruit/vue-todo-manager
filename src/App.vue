@@ -4,8 +4,8 @@
 
 <script lang="ts">
 import Layout from './modules/layout/Layout.vue';
-
-export default {
+import Vue from 'vue';
+export default Vue.extend({
   name: 'App',
 
   components: {
@@ -16,5 +16,13 @@ export default {
     return {
     }
   },
-}
+  watch: {
+    $route: {
+      immediate: true,
+      handler(to, from) {
+        document.title = to.meta.title || 'Todo manager';
+      }
+    },
+  }
+})
 </script>

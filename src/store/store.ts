@@ -32,12 +32,6 @@ export const mutations = {
   setProjects(projects: IProjectItem[]) {
     store.projects = [...projects];
   },
-  deleteProjectById(id: string) {
-    store.projects = store.projects.filter(item => item.id !== id);
-  },
-  addProject(project: IProjectItem) {
-    store.projects.unshift(project);
-  },
   setUsers(users: IPersonInfo[]) {
     store.users = [...users];
   },

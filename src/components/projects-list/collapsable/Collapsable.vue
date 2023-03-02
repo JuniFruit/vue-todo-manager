@@ -11,7 +11,8 @@
                         <div>{{ project.content }}</div>
                     </v-card-text>
                     <v-flex row justify-end>
-                        <v-btn @click="onDelete(project.id)" small depressed caption class="grey--text">Delete</v-btn>
+                        <v-btn v-show="project.person === 'User'" :loading="isDeleteLoading" @click="onDelete(project.id)"
+                            small depressed caption class="grey--text">Delete</v-btn>
                     </v-flex>
                 </v-card>
             </v-expansion-panel-content>
@@ -21,16 +22,21 @@
 
 
 <script lang="ts">
-//@ts-nocheck
-import { IProjectItem } from '@/modules/projects/Projects.interface';
+import Vue from 'vue'
 import { PropType } from 'vue';
+import { IProjectItem } from '../List.interface';
 
 
-export default {
+export default Vue.extend({
     props: {
         projects: {
             type: Array as PropType<IProjectItem[]>
+        },
+        isDeleteLoading: {
+            required: true,
+            type: Boolean
         }
+
     },
     methods: {
         onDelete(id: string) {
@@ -38,5 +44,5 @@ export default {
         }
     }
 
-}
+})
 </script>

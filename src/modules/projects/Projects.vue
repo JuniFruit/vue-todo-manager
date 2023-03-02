@@ -29,19 +29,23 @@
 
 
 <script lang="ts">
-//@ts-nocheck
+import Vue from 'vue'
 import ProjectsList from '@/components/projects-list/ProjectsList.vue';
-import db from '@/firebase.init';
-import { mutations, store } from '@/store/store';
-import { collection, getDocs } from 'firebase/firestore';
+import { Firestore } from '@/services/firestore.service';
+import { store } from '@/store/store';
 
-export default {
+export default Vue.extend({
     components: {
         ProjectsList
     },
     data() {
         return {
-            projects: []
+
+        }
+    },
+    computed: {
+        projects() {
+            return store.projects || []
         }
     },
     methods: {
@@ -50,17 +54,7 @@ export default {
         }
     },
     async created() {
-        const cached = store.projects;
-        if (cached.length) return this.projects = cached;
-        const querySnapshot = await getDocs(collection(db, "projects"));
-        if (!querySnapshot) return;
-        const docs = []
-        querySnapshot.forEach((doc) => {
-            docs.push({ ...doc.data(), id: doc.id })
-
-        })
-        this.projects = docs
-        mutations.setProjects(docs)
+        await Firestore.getProjects()
     }
-}
+})
 </script>

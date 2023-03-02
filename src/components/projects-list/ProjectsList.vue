@@ -30,9 +30,10 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import { PropType } from 'vue';
 import { IProjectItem } from './List.interface'
-export default {
+export default Vue.extend({
     props: {
         projects: {
             required: true,
@@ -45,7 +46,7 @@ export default {
         }
     }
 
-}
+})
 
 </script>
 

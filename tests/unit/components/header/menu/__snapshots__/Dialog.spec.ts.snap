@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog.vue component when submitted with user inputs renders dialog on error 1`] = `
+<div role="dialog" aria-modal="true" class="v-dialog__content v-dialog__content--active" style="z-index: 202;">
+  <transition-stub name="dialog-transition" appear="true">
+    <div tabindex="0" class="v-dialog v-dialog--active" style="transform-origin: center center; width: 600px;">
+      <div class="v-card v-sheet theme--light">
+        <div class="v-card__title text-h5 white--text primary">
+          Add a new project
+        </div>
+        <div class="v-card__text mt-5">
+          <form novalidate="novalidate" class="v-form px-3">
+            <div class="v-input theme--light v-text-field">
+              <div class="v-input__prepend-outer">
+                <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-account theme--light"></i></div>
+              </div>
+              <div class="v-input__control">
+                <div class="v-input__slot">
+                  <div class="v-text-field__slot"><label for="input-174" class="v-label theme--light" style="left: 0px; position: absolute;">Title</label><input name="Title" id="input-174" type="text"></div>
+                </div>
+                <div class="v-text-field__details">
+                  <div class="v-messages theme--light">
+                    <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="v-input v-textarea theme--light v-text-field">
+              <div class="v-input__prepend-outer">
+                <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-pencil theme--light"></i></div>
+              </div>
+              <div class="v-input__control">
+                <div class="v-input__slot">
+                  <div class="v-text-field__slot"><label for="input-178" class="v-label theme--light" style="left: 0px; position: absolute;">Info</label><textarea name="Information" id="input-178" rows="5"></textarea></div>
+                </div>
+                <div class="v-text-field__details">
+                  <div class="v-messages theme--light">
+                    <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="v-menu">
+              <!---->
+            </div>
+            <div class="v-input v-input--is-label-active v-input--is-dirty theme--light v-text-field">
+              <div class="v-input__prepend-outer">
+                <div class="v-input__icon v-input__icon--prepend"><i aria-hidden="true" class="v-icon notranslate mdi mdi-calendar theme--light"></i></div>
+              </div>
+              <div class="v-input__control">
+                <div class="v-input__slot">
+                  <div class="v-text-field__slot"><label for="input-183" class="v-label v-label--active theme--light" style="left: 0px; position: absolute;">Due date</label><input name="Due" role="button" aria-haspopup="true" aria-expanded="false" id="input-183" type="text"></div>
+                </div>
+                <div class="v-text-field__details">
+                  <div class="v-messages theme--light">
+                    <transition-group-stub tag="div" name="message-transition" class="v-messages__wrapper"></transition-group-stub>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex row justify-center"><button type="submit" class="v-btn v-btn--has-bg theme--light v-size--default primary my-5"><span class="v-btn__content">Add a project</span></button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </transition-stub>
+</div>
+`;

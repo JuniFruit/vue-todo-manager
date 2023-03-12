@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PersonCards.vue module renders vuetify cards 1`] = `
+<div class="text-xs text-center ma-3 pa-4 v-card v-sheet theme--light">
+  <div class="v-responsive">
+    <div class="v-responsive__content">
+      <div class="v-avatar gray lighten-2" style="min-width: avatarSize;"><img src="//" alt="profile avatar"></div>
+    </div>
+  </div>
+  <div class="v-card__text">
+    <div class="subheading">John Doe</div>
+    <div class="grey--text">tester</div>
+  </div>
+  <div class="v-card__actions justify-center"><button type="button" class="grey--text v-btn v-btn--has-bg theme--light v-size--default gray"><span class="v-btn__content"><i aria-hidden="true" class="v-icon notranslate v-icon--left mdi mdi-message theme--light" style="font-size: 16px;"></i> <span>Message</span></span></button></div>
+</div>
+`;

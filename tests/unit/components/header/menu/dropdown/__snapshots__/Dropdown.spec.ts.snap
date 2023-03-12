@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown.vue component opens vuetify list with links when clicked 1`] = `
+<div class="v-list v-sheet theme--light"><a href="/" aria-current="page" class="primary lighten-4 dark--text v-list-item--active v-list-item v-list-item--link theme--light" tabindex="0" router="" role="menuitem" id="list-item-27">
+    <div class="v-list-item__title">Dashboard</div>
+  </a><a href="/projects" class="v-list-item v-list-item--link theme--light" tabindex="0" router="" role="menuitem" id="list-item-29">
+    <div class="v-list-item__title">Projects</div>
+  </a><a href="/team_page" class="v-list-item v-list-item--link theme--light" tabindex="0" router="" role="menuitem" id="list-item-31">
+    <div class="v-list-item__title">Team</div>
+  </a></div>
+`;

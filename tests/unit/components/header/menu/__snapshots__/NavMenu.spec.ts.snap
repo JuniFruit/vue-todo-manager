@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavMenu.vue component renders links in vuetify list 1`] = `
+<div role="list" class="v-list v-sheet theme--light"><a href="/" aria-current="page" class="v-list-item--active v-list-item v-list-item--link theme--light" tabindex="0" router="" role="listitem">
+    <div class="v-list-item__action"><i aria-hidden="true" class="v-icon notranslate white--text mdi mdi-view-dashboard theme--light"></i></div>
+    <div class="v-list-item__content">
+      <div class="v-list-item__title white--text">
+        Dashboard
+      </div>
+    </div>
+  </a><a href="/projects" class="v-list-item v-list-item--link theme--light" tabindex="0" router="" role="listitem">
+    <div class="v-list-item__action"><i aria-hidden="true" class="v-icon notranslate white--text mdi mdi-folder theme--light"></i></div>
+    <div class="v-list-item__content">
+      <div class="v-list-item__title white--text">
+        Projects
+      </div>
+    </div>
+  </a><a href="/team_page" class="v-list-item v-list-item--link theme--light" tabindex="0" router="" role="listitem">
+    <div class="v-list-item__action"><i aria-hidden="true" class="v-icon notranslate white--text mdi mdi-account theme--light"></i></div>
+    <div class="v-list-item__content">
+      <div class="v-list-item__title white--text">
+        Team
+      </div>
+    </div>
+  </a></div>
+`;

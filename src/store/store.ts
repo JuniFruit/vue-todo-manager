@@ -1,7 +1,7 @@
 import { IPersonInfo } from "@/components/person-cards/Cards.interface";
 import { IProjectItem } from "@/components/projects-list/List.interface";
 import Vue from "vue";
-interface IState {
+export interface IState {
   toastMsg: string;
   toastType: ToastType;
   projects: IProjectItem[];

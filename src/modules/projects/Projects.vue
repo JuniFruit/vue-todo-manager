@@ -3,7 +3,7 @@
         <v-layout row class="mb-7">
             <v-tooltip top>
                 <template v-slot:activator="{ on, attrs }">
-                    <v-btn small depressed color="gray" class="grey--text" v-bind="attrs" v-on="on"
+                    <v-btn small depressed color="gray" data-project class="grey--text" v-bind="attrs" v-on="on"
                         @click="sortBy('title')">
                         <v-icon left small>mdi-folder</v-icon>
                         <span class="caption text-lowercase">By project name</span>
@@ -13,7 +13,7 @@
             </v-tooltip>
             <v-tooltip top>
                 <template v-slot:activator="{ on, attrs }">
-                    <v-btn depressed small v-bind="attrs" class="grey--text" v-on="on" color="gray"
+                    <v-btn depressed small v-bind="attrs" data-person class="grey--text" v-on="on" color="gray"
                         @click="sortBy('person')">
                         <v-icon left small>mdi-account</v-icon>
                         <span class="caption text-lowercase">By person</span>
@@ -35,6 +35,7 @@ import { Firestore } from '@/services/firestore.service';
 import { store } from '@/store/store';
 
 export default Vue.extend({
+    name: 'Projects',
     components: {
         ProjectsList
     },

@@ -34,6 +34,7 @@ import Vue from 'vue'
 import { PropType } from 'vue';
 import { IProjectItem } from './List.interface'
 export default Vue.extend({
+    name: 'ProjectsList',
     props: {
         projects: {
             required: true,

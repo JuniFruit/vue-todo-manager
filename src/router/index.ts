@@ -2,9 +2,11 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Dashboard from "@/views/Dashboard.vue";
 
-Vue.use(VueRouter);
+if (process.env.NODE_ENV !== "test") {
+  Vue.use(VueRouter);
+}
 
-const routes: Array<RouteConfig> = [
+export const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "dashboard",

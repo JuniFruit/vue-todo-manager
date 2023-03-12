@@ -1,8 +1,9 @@
 <template>
     <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-            <v-btn color="white" class="primary--text mx-4" depressed v-bind="attrs" v-on="on">
-                <v-icon left>mdi-chevron-down</v-icon>
+            <v-btn color="white" class="primary--text mx-4" v-click-outside="onClickOutside" @click="isOpen = true"
+                depressed v-bind="attrs" v-on="on">
+                <v-icon left>{{ isOpen ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
                 <span>Menu</span>
             </v-btn>
         </template>
@@ -20,9 +21,16 @@ import Vue from 'vue'
 import { menuLinks } from './menu.data';
 
 export default Vue.extend({
+    name: 'Dropdown',
     data() {
         return {
-            menuLinks
+            menuLinks,
+            isOpen: false
+        }
+    },
+    methods: {
+        onClickOutside() {
+            this.isOpen = false
         }
     }
 })

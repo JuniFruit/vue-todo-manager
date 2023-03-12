@@ -9,6 +9,7 @@ import PersonCards from '@/components/person-cards/PersonCards.vue';
 import { Firestore } from '@/services/firestore.service';
 import { store } from '@/store/store';
 export default Vue.extend({
+    name: 'Team',
     components: {
         PersonCards
     },

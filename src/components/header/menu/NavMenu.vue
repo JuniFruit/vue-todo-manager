@@ -33,6 +33,7 @@ import { menuLinks } from './menu.data';
 import Dialog from './Dialog.vue';
 
 export default Vue.extend({
+    name: 'NavMenu',
     components: { Dialog },
     data() {
         return {

@@ -23,6 +23,7 @@ import NavMenu from './menu/NavMenu.vue';
 import Dropdown from './menu/Dropdown.vue';
 import Toast from './menu/Toast.vue';
 export default {
+    name: 'Header',
     data() {
         return {
             isMenuOpen: false,

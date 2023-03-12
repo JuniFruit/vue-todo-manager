@@ -27,6 +27,7 @@ import { mutations } from '@/store/store';
 import { PropType } from 'vue';
 import { IPersonInfo } from './Cards.interface';
 export default {
+    name: 'PersonCards',
     props: {
         team: {
             required: true,

@@ -28,6 +28,7 @@ import { IProjectItem } from '../List.interface';
 
 
 export default Vue.extend({
+    name: 'Collapsable',
     props: {
         projects: {
             type: Array as PropType<IProjectItem[]>

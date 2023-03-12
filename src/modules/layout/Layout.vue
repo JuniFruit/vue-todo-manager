@@ -13,6 +13,7 @@
 import Header from '@/components/header/Header.vue';
 
 export default {
+    name: 'Layout',
     components: {
         'app-header': Header
     }

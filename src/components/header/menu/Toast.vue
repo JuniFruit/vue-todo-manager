@@ -15,6 +15,7 @@
 import Vue from 'vue';
 import { mutations, store } from '@/store/store';
 export default Vue.extend({
+    name: 'Toast',
     data() {
         return {
         }

@@ -19,7 +19,7 @@
                         prepend-icon="mdi-pencil"></v-textarea>
                     <v-menu offset-y min-width="auto">
                         <template v-slot:activator="{ on, attrs }">
-                            <v-text-field v-on="on" v-bind="attrs" :rules="inputRules" :value="fomatted"
+                            <v-text-field v-on="on" v-bind="attrs" :rules="inputRules" name="Due" :value="fomatted"
                                 prepend-icon="mdi-calendar" label="Due date"></v-text-field>
                         </template>
                         <v-date-picker v-model="due" color="primary lighten-2"></v-date-picker>
@@ -45,7 +45,7 @@ import { Firestore } from '@/services/firestore.service';
 import { mutations } from '@/store/store';
 import { format } from 'date-fns';
 export default Vue.extend({
-
+    name: 'Dialog',
     data() {
         return {
             title: '',
